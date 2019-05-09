@@ -1,0 +1,51 @@
+body {
+    background-color: rgba(244,255,248,0.5);
+}
+
+div#abc {
+    display: flex;
+    justify-content: center;
+}
+
+div#container {
+    width: 500px;
+    height: 500px;
+    margin-top: 30px;
+    box-shadow: 0 0 12px 8px rgba(0,0,0,0.1);
+    display: grid;
+    grid-auto-columns: auto;
+}
+
+div#container div {
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+div#container div.drawn {
+    background-color: #1C3738;
+}
+
+div#control-bar {
+    text-align: center;
+}
+
+button.control-btn {
+    margin-top: 40px;
+    margin-bottom: 5px;
+    border: none;
+    width: 100px;
+    height: 40px;
+    background-color: rgb(28, 55, 56);
+    color: #F4FFF8;
+    font-weight: bold;
+    font-size: 1em;
+    text-transform: uppercase;
+    border-radius: 1px;
+    outline: none;
+    cursor: pointer;
+}
+
+button.control-btn:hover {
+    background-color: rgba(28, 55, 56, 0.9);
+    box-shadow: 0 0 5px 0 rgba(0,0,0,0.5);
+    color: #eee;
+}
