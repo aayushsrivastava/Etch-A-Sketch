@@ -1,5 +1,9 @@
 "use strict";
 
+let mouseController = {
+    'method': 'mouseover'
+};
+
 drawCanvas(3);
 
 let resetButton = document.querySelector('#reset-btn');
@@ -8,8 +12,20 @@ resetButton.addEventListener('click', resetCanvas);
 let resizeButton = document.querySelector('#resize-btn');
 resizeButton.addEventListener('click', resizeCanvas);
 
+let radioButtons = document.querySelectorAll('input[name=mouse-control]');
+radioButtons.forEach(radioButton => {
+    radioButton.addEventListener('change', (e) => {
+        if (e.target.id === 'mouse-click') {
+            mouseController['method'] = 'click';
+        }
+        else if (e.target.id === 'mouse-hover') {
+            mouseController['method'] = 'mouseover';
+        }
+    });
+});
+
 function resizeCanvas(e) {
-    let n = prompt('State the number of sqares on one side?');
+    let n = prompt('How many squares per side to make the new grid?');
     destroyCanvas();
     drawCanvas(n);
 }
@@ -22,6 +38,7 @@ function drawCanvas(n) {
     for (let i = 0; i < n * n; i++) {
         let cell = document.createElement('div');
         cell.addEventListener('mouseover', paintCell);
+        cell.addEventListener('click', paintCell);
         container.appendChild(cell);
     }
 }
@@ -41,5 +58,11 @@ function destroyCanvas() {
 }
 
 function paintCell(e) {
-    e.target.classList.add('drawn');
+    if (e.type !== mouseController['method']) return;
+    if (mouseController['method'] === 'mouseover') {
+        e.target.classList.add('drawn');
+    }
+    else if (mouseController['method'] === 'click') {
+        e.target.classList.toggle('drawn');
+    }
 }

@@ -30,7 +30,6 @@ div#control-bar {
 
 button.control-btn {
     margin-top: 40px;
-    margin-bottom: 5px;
     border: none;
     width: 100px;
     height: 40px;
@@ -48,4 +47,8 @@ button.control-btn:hover {
     background-color: rgba(28, 55, 56, 0.9);
     box-shadow: 0 0 5px 0 rgba(0,0,0,0.5);
     color: #eee;
+}
+
+div#control-bar p {
+    margin: 10px 0 2px 0;
 }
